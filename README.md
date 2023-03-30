@@ -1,8 +1,8 @@
 # Octilus-Register
 
-## Live
+![Demo](/src/assets/octilus-thumb.jpeg)
 
-<iframe src={https://vimeo.com/813284797/2cd49a6799/}>
+
 
 ## Introduction
 
