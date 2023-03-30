@@ -34,8 +34,10 @@ const JobForm = () => {
         job_title: position,
       };
       console.log(payload);
-      dispatch(updateUserApi(payload));
-      navigate("/success");
+      dispatch(updateUserApi(payload)).then(()=>{
+
+        navigate("/success");
+      });
     } else {
       toast({
         title: "Please Accept T&C!",

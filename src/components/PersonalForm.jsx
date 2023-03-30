@@ -20,6 +20,8 @@ const PersonalForm = () => {
   const toast = useToast();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRegex = /^\d{10}$/;
   const onChangeHandler = (e) => {
     let { name, value } = e.target;
     let paylaod = {
@@ -29,13 +31,19 @@ const PersonalForm = () => {
     setForm(paylaod);
   };
   const onNextHandler = () => {
-    if (form.name && form.email && form.gender && form.phone.length === 10) {
-      dispatch(registerUserApi(form));
+    if (
+      form.name &&
+      emailRegex.test(form.email) &&
+      form.gender &&
+      phoneRegex.test(form.phone)
+    ) {
+      dispatch(registerUserApi(form)).then(() => {
+        navigate("/job");
+      });
       console.log(form);
-      navigate("/job");
     } else {
       toast({
-        title: "Incomplete Information!",
+        title: "Incomplete Information or invalid data!",
         description: "All fields are required",
         status: "error",
         duration: 5000,
@@ -65,18 +73,18 @@ const PersonalForm = () => {
       <InputComp
         placeholder="Email"
         name="email"
-        type="text"
+        type="email"
         value={form.email}
-        isInvalid={form.email === ""}
+        isInvalid={!emailRegex.test(form.email)}
         onChange={onChangeHandler}
       />
 
       <InputComp
         placeholder="Phone No."
         name="phone"
-        type="number"
+        type="tel"
         value={form.phone}
-        isInvalid={form.phone === ""}
+        isInvalid={!phoneRegex.test(form.phone)}
         onChange={onChangeHandler}
       />
       <FormLabel>Select Gender</FormLabel>
