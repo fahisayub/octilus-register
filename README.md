@@ -6,7 +6,7 @@
 
 ## Introduction
 
-The main objective of this project is to implement a beautifull registration form with form validation and also need to create and update data in server.
+The main objective of this project is to implement a beautiful registration form with form validation and also need to create and update data in server.
 
 ### Deploy link : <https://octilus-reg.vercel.app/>
 
