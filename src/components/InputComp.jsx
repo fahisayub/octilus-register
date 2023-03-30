@@ -3,7 +3,7 @@ import React from 'react';
 
 const InputComp = ({value,type,name,placeholder,isInvalid,onChange}) => {
     return (
-        <FormControl isRequired isInvalid={isInvalid}>
+        <FormControl isRequired isInvalid={isInvalid} my='30px'>
 
       <Input
         placeholder={placeholder}
@@ -11,6 +11,7 @@ const InputComp = ({value,type,name,placeholder,isInvalid,onChange}) => {
         type={type} required
         value={value}
         onChange={onChange}
+        size={'lg'}
         />
         {value===''&&<FormErrorMessage>{placeholder} is required.</FormErrorMessage>}
         </FormControl>
