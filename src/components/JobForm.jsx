@@ -18,10 +18,10 @@ import { Link as NavLink, useNavigate } from "react-router-dom";
 import { updateUserApi } from "../store/userReducer/user.actions";
 const JobForm = () => {
   const [isAccept, setAccept] = useState(false);
-  const [position, setPos] = useState( "Frondend Developer" );
+  const [position, setPos] = useState("Frondend Developer");
   const { userId } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const toast = useToast();
   const onChangeValueHandler = (e) => {
     setPos(e);
@@ -35,7 +35,7 @@ const JobForm = () => {
       };
       console.log(payload);
       dispatch(updateUserApi(payload));
-      navigate('/success')
+      navigate("/success");
     } else {
       toast({
         title: "Please Accept T&C!",
@@ -49,20 +49,28 @@ const JobForm = () => {
   };
 
   return (
-    <Container px='100px' py='50px' maxW={'50%'} border={'1px solid black'}>
-      <Button mb='20px' p='0px' textAlign={'left'} variant={"ghost"} color="gray" to="/" as={NavLink}>
+    <Container px="100px" py="50px" maxW={"50%"} border={"1px solid black"}>
+      <Button
+        mb="20px"
+        p="0px"
+        textAlign={"left"}
+        variant={"ghost"}
+        color="gray"
+        to="/"
+        as={NavLink}
+      >
         {" "}
         <FaArrowLeft />
         PREVIOUS STEP
       </Button>
       <Heading>Select Job Position</Heading>
-      <Divider my='50px' borderColor={'gray.400'} />
+      <Divider my="50px" borderColor={"gray.400"} />
       <RadioGroup
         defaultValue={position}
         onChange={onChangeValueHandler}
-        colorScheme="green" 
+        colorScheme="green"
       >
-        <Stack textAlign={"left"} direction={"column"} spacing={'20px'}>
+        <Stack textAlign={"left"} direction={"column"} spacing={"20px"}>
           <Radio value="Frondend Developer">Frondend Developer</Radio>
           <Radio value="Wordpress Developer">WordPress Developer</Radio>
           <Radio value="UI/UX Designer">UI/UX Designer</Radio>
@@ -71,9 +79,9 @@ const JobForm = () => {
         </Stack>
       </RadioGroup>
       <Checkbox
-      mt='40px'
-      mb='20px'
-      size={'lg'}
+        mt="40px"
+        mb="20px"
+        size={"lg"}
         checked={isAccept}
         colorScheme="green"
         onChange={(e) => setAccept(e.target.checked)}
@@ -88,7 +96,12 @@ const JobForm = () => {
         </Link>
       </Checkbox>
       <Box>
-        <Button size={'lg'} w='150px' colorScheme="green" onClick={onSubmitHandler}>
+        <Button
+          size={"lg"}
+          w="150px"
+          colorScheme="green"
+          onClick={onSubmitHandler}
+        >
           SUBMIT
         </Button>
       </Box>

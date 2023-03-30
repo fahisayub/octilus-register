@@ -19,7 +19,7 @@ const PersonalForm = () => {
   const [value, setValue] = useState(null);
   const toast = useToast();
   const dispatch = useDispatch();
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const onChangeHandler = (e) => {
     let { name, value } = e.target;
     let paylaod = {
@@ -32,7 +32,7 @@ const PersonalForm = () => {
     if (form.name && form.email && form.gender && form.phone.length === 10) {
       dispatch(registerUserApi(form));
       console.log(form);
-      navigate('/job')
+      navigate("/job");
     } else {
       toast({
         title: "Incomplete Information!",
@@ -52,8 +52,8 @@ const PersonalForm = () => {
   };
 
   return (
-    <Container maxW='50%' px='100px'>
-      <Heading my='20px'>Personal Information</Heading>
+    <Container maxW="50%" px="100px">
+      <Heading my="20px">Personal Information</Heading>
       <InputComp
         placeholder="Name"
         name="name"
@@ -80,7 +80,12 @@ const PersonalForm = () => {
         onChange={onChangeHandler}
       />
       <FormLabel>Select Gender</FormLabel>
-      <RadioGroup onChange={onValueChange} value={value} required colorScheme="green">
+      <RadioGroup
+        onChange={onValueChange}
+        value={value}
+        required
+        colorScheme="green"
+      >
         <Stack direction={"row"}>
           <RadioBtn value={"Male"} />
           <RadioBtn value={"Female"} />
@@ -91,7 +96,7 @@ const PersonalForm = () => {
         colorScheme="green"
         size="lg"
         px="50px"
-        w='150px'
+        w="150px"
         my="20px"
       >
         Next
