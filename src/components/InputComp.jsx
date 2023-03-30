@@ -9,13 +9,17 @@ const InputComp = ({ value, type, name, placeholder, isInvalid, onChange }) => {
         name={name}
         type={type}
         required
-        value={value}
         onChange={onChange}
         size={"lg"}
       />
-      {value === "" && (
-        <FormErrorMessage>{placeholder} is required.</FormErrorMessage>
-      )}
+      {value === "" &&
+        (type === "number" ? (
+          <FormErrorMessage>
+            {placeholder} should have 10 digits
+          </FormErrorMessage>
+        ) : (
+          <FormErrorMessage>{placeholder} is required.</FormErrorMessage>
+        ))}
     </FormControl>
   );
 };

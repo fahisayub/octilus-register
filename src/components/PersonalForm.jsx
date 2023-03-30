@@ -76,7 +76,7 @@ const PersonalForm = () => {
         name="phone"
         type="number"
         value={form.phone}
-        isInvalid={form?.phone?.length !== 10}
+        isInvalid={form.phone === ""}
         onChange={onChangeHandler}
       />
       <FormLabel>Select Gender</FormLabel>
