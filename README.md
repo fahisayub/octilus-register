@@ -1,12 +1,14 @@
 # Octilus-Register
 
-![Demo](/src/assets/octilus-thumb.jpeg)
-
 ## Introduction
 
 The main objective of this project is to implement a beautiful registration form with form validation and also need to create and update data in server.
 
 ### Deploy link : <https://octilus-reg.vercel.app/>
+
+## Demo
+
+![Demo](/src/assets/octilus.gif)
 
 ## Features
 
